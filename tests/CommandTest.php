@@ -84,7 +84,7 @@ EOF, $output->fetch());
 
     public function command()
     {
-        $output = new BufferedOutput();
+        $output = new BufferedOutput;
 
         return [$output, new class($output) extends Command
         {

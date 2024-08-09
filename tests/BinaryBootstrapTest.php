@@ -39,6 +39,6 @@ class BinaryBootstrapTest extends TestCase
             return PHP_BINARY;
         }
 
-        return defined('PHP_BINARY') ? PHP_BINARY : (new PhpExecutableFinder())->find();
+        return defined('PHP_BINARY') ? PHP_BINARY : (new PhpExecutableFinder)->find();
     }
 }

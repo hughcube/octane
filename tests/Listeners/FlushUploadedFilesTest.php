@@ -33,7 +33,7 @@ class FlushUploadedFilesTest extends TestCase
             $this->assertFileExists($file2path);
             $this->assertFileExists($file3newPath);
 
-            $event = new \stdClass();
+            $event = new \stdClass;
             $event->request = $request;
 
             (new FlushUploadedFiles)->handle($event);

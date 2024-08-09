@@ -25,7 +25,7 @@ trait InteractsWithEnvironmentVariables
                 ->make()
                 ->read();
 
-            foreach ((new Parser())->parse($content) as $entry) {
+            foreach ((new Parser)->parse($content) as $entry) {
                 $variables->push($entry->getName());
             }
         } catch (InvalidPathException $e) {

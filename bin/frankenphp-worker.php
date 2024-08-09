@@ -28,7 +28,7 @@ $basePath = require __DIR__.'/bootstrap.php';
 |
 */
 
-$frankenPhpClient = new FrankenPhpClient();
+$frankenPhpClient = new FrankenPhpClient;
 
 $worker = null;
 $requestCount = 0;
@@ -48,7 +48,7 @@ try {
                 )
             )->boot();
 
-            [$request, $context] = $frankenPhpClient->marshalRequest(new RequestContext());
+            [$request, $context] = $frankenPhpClient->marshalRequest(new RequestContext);
 
             $worker->handle($request, $context);
         } catch (Throwable $e) {

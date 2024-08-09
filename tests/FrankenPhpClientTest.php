@@ -12,8 +12,8 @@ class FrankenPhpClientTest extends TestCase
 {
     public function test_marshal_request()
     {
-        $requestContext = new RequestContext();
-        $marshaledRequest = (new FrankenPhpClient())->marshalRequest($requestContext);
+        $requestContext = new RequestContext;
+        $marshaledRequest = (new FrankenPhpClient)->marshalRequest($requestContext);
         $this->assertInstanceOf(Request::class, $marshaledRequest[0]);
         $this->assertSame($requestContext, $marshaledRequest[1]);
     }
@@ -26,6 +26,6 @@ class FrankenPhpClientTest extends TestCase
         $response = \Mockery::mock(Response::class);
         $response->shouldReceive('send');
 
-        (new FrankenPhpClient())->respond(new RequestContext(), new OctaneResponse($response));
+        (new FrankenPhpClient)->respond(new RequestContext, new OctaneResponse($response));
     }
 }

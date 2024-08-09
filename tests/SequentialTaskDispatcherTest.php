@@ -20,8 +20,7 @@ class SequentialTaskDispatcherTest extends TestCase
         ], $dispatcher->resolve([
             'first' => fn () => 1,
             'second' => fn () => 2,
-            'third' => function () {
-            },
+            'third' => function () {},
         ]));
     }
 
@@ -77,7 +76,7 @@ class SequentialTaskDispatcherTest extends TestCase
 
     public function test_resolving_tasks_propagate_exceptions()
     {
-        $dispatcher = new SequentialTaskDispatcher();
+        $dispatcher = new SequentialTaskDispatcher;
 
         $this->expectException(TaskException::class);
         $this->expectExceptionMessage('Something went wrong.');
@@ -89,7 +88,7 @@ class SequentialTaskDispatcherTest extends TestCase
 
     public function test_resolving_tasks_propagate_dd_calls()
     {
-        $dispatcher = new SequentialTaskDispatcher();
+        $dispatcher = new SequentialTaskDispatcher;
 
         $this->expectException(DdException::class);
         $this->expectExceptionMessage(json_encode(['foo' => 'bar']));

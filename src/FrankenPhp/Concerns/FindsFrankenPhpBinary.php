@@ -11,6 +11,6 @@ trait FindsFrankenPhpBinary
      */
     protected function findFrankenPhpBinary(): ?string
     {
-        return (new ExecutableFinder())->find('frankenphp', null, [base_path()]);
+        return (new ExecutableFinder)->find('frankenphp', null, [base_path()]);
     }
 }

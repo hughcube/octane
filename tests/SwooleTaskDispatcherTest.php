@@ -18,7 +18,7 @@ class SwooleTaskDispatcherTest extends TestCase
 {
     public function test_tasks_can_only_be_resolved_via_server_context()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -27,7 +27,7 @@ class SwooleTaskDispatcherTest extends TestCase
 
     public function test_tasks_can_only_be_dispatched_via_server_context()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->expectException(InvalidArgumentException::class);
 
@@ -36,7 +36,7 @@ class SwooleTaskDispatcherTest extends TestCase
 
     public function test_resolving_tasks_may_timeout()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->instance(Server::class, Mockery::mock(Server::class, function ($mock) {
             $mock->shouldReceive('taskWaitMulti')
@@ -53,7 +53,7 @@ class SwooleTaskDispatcherTest extends TestCase
 
     public function test_resolving_tasks_propagate_exceptions()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->instance(Server::class, Mockery::mock(Server::class, function ($mock) {
             $mock->shouldReceive('taskWaitMulti')
@@ -69,7 +69,7 @@ class SwooleTaskDispatcherTest extends TestCase
 
     public function test_resolving_tasks_propagate_dd_calls()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->instance(Server::class, Mockery::mock(Server::class, function ($mock) {
             $mock->shouldReceive('taskWaitMulti')
@@ -89,7 +89,7 @@ class SwooleTaskDispatcherTest extends TestCase
 
     public function test_dispatching_tasks_do_not_propagate_exceptions()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->instance(Server::class, Mockery::mock(Server::class, function ($mock) {
             $mock->shouldReceive('task')
@@ -101,7 +101,7 @@ class SwooleTaskDispatcherTest extends TestCase
 
     public function test_tasks_can_be_resolved()
     {
-        $dispatcher = new SwooleTaskDispatcher();
+        $dispatcher = new SwooleTaskDispatcher;
 
         $this->instance(Server::class, Mockery::mock(Server::class, function ($mock) {
             $mock->shouldReceive('taskWaitMulti')

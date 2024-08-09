@@ -22,7 +22,7 @@ class DdException extends Exception implements Renderable
     public function render()
     {
         $dump = function ($var) {
-            $data = (new VarCloner())->cloneVar($var)->withMaxDepth(3);
+            $data = (new VarCloner)->cloneVar($var)->withMaxDepth(3);
 
             return (string) (new HtmlDumper(false))->dump($data, true, [
                 'maxDepth' => 3,
